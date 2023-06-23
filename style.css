@@ -1,6 +1,9 @@
+@import url("https://fonts.google.com/specimen/Outfit");
 * {
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: Outfit;
+  user-select: none;
+  font-size: 11px;
 }
 :root {
   --very-dark-blue: hsl(217, 54%, 11%);
@@ -10,26 +13,31 @@
   --SoftBlue: hsl(215, 51%, 70%);
   --Cyan: hsl(178, 100%, 50%);
 }
-body {
-  position: relative;
-  background-color: var(--very-dark-blue);
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container {
-  position: relative;
-  padding: 20px;
-  border-radius: 2%;
-  background-color: var(--dark-blue);
-  width: 350px;
-}
 img {
   height: 100%;
   width: 100%;
 }
+body {
+  margin: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--very-dark-blue);
+}
+main {
+  position: relative;
+  border-radius: 10px;
+  padding: 15px;
+  width: auto;
+  height: 100%;
+  max-height: 450px;
+  max-width: 250px;
+  background-color: var(--dark-blue);
+}
+
 .view {
   position: absolute;
   background-color: var(--Cyan);
@@ -47,91 +55,96 @@ img {
 }
 .image {
   position: relative;
-  height: 40%;
+  height: 55%;
   width: 100%;
+  border-radius: 5px;
   overflow: hidden;
-  border-radius: 10px;
 }
-.image:hover .view{
+.hide {
+  display: none;
+}
+
+.image:hover .view {
   cursor: pointer;
   visibility: visible;
 }
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   position: relative;
-  height: 60%;
-  border-radius: 2%;
+  height: 45%;
   color: var(--SoftBlue);
 }
 .text {
-  height: 20%;
-  font-size: 15px;
+  width: 100%;
+  height: 40%;
+  font-weight: 400;
 }
-.text h2 {
+.text p {
+  font-size: 13px;
+  font-weight: 400;
+}
+.text h1 {
+  font-weight: 300;
+  font-size: 15px;
   color: white;
 }
-.text h2:hover {
+.text h1:hover {
   color: hsl(178, 100%, 50%);
   cursor: pointer;
 }
 
+/* price and time */
 .info {
   width: 100%;
-  height: 10%;
+  height: 20px;
   display: flex;
   justify-content: space-between;
 }
-
+.info div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 .info img {
-  width: 8%;
-  height: 90%;
+  width: auto;
 }
 .info p {
-  display: flex;
-  gap: 5%;
-  width: 50%;
+  font-weight: 600;
+  margin: 0;
 }
-.info p:first-child {
+.info div:first-child {
   color: var(--Cyan);
 }
 
-hr {
-  height: 1px;
-  background-color: var(--VeryDarkBlue);
-  border: none;
-}
-
+/* creator */
 .bottom {
-  height: 20%;
-  width: 80%;
+  height: 30px;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  gap: 8px;
 }
+
 .bottom img {
-  width: 20%;
-  height: 80%;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 1px solid var(--White);
 }
 .bottom a {
+  font-weight: 600;
   color: var(--White);
+  text-decoration: none;
 }
 .bottom a:hover {
   color: var(--Cyan);
   cursor: pointer;
 }
-@media screen and (max-width: 350px) {
-  .container {
-    padding: 5%;
-  }
-
-  .text {
-    font-size: 4vw;
-  }
-  .info {
-    font-size: 3vw;
-  }
-  .bottom {
-    font-size: 3vw;
-  }
+hr {
+  border: 1px solid var(--VeryDarkBlue);
+  width: 100%;
+  margin: 0;
 }
